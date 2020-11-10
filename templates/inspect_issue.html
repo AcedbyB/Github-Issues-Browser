@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<style>
+    .pagination {
+      display: inline-block;
+    }
+    
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    }
+
+    .pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+<body>
+    <ul style ="font-size: 24px;"> 
+        <a> Issue #: {{ issue.number }} </a>
+        <li>Issue URL: <a href="{{ issue.html_url }}"> {{ issue.html_url }}</a> </li>
+        <li>Due: {{ issue.due_on }} </li>
+        <li>State: {{ issue.state }}</li>
+        <li>Title: {{ issue.title }}</li>
+        <li>Owner: {{ issue.user.login }}</li>
+        <li>Created: {{ issue.created_at }}</li>
+        <li>Body: {{ issue.body }}</li>
+    </ul>
+</body>
+</html>

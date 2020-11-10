@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<style>
+    .pagination {
+      display: inline-block;
+    }
+    
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    }
+
+    .pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+<body>
+    {% for item in current_issues%}
+    <ul style ="font-size: 24px;"> 
+        <a href= "/issues/{{item.id}}"> Issue #: {{ item.number }} </a>
+        <li>State: {{ item.state }}</li>
+        <li>Title: {{ item.title }}</li>
+    </ul>
+    {% endfor %}
+
+    <div class="pagination">
+    {% for page in page_urls %}
+    <a style ="font-size: 25px;" href= "{{ page_urls[page] }}" >{{ page }} </a>
+    {% endfor %}
+    </div>
+
+</body>
+</html>
